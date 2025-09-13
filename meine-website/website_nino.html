@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lista AG - Nino Fester</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #000000;
+    color: #ffffff;
+  }
+
+  header {
+    background: #111111;
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+  }
+
+  header h1 { 
+    margin: 0; 
+    font-size: 3.5rem; 
+    font-weight: bold;
+  }
+
+  header p { 
+    margin-top: 15px; 
+    font-size: 1.8rem; 
+    font-weight: bold;
+  }
+
+  nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 25px;
+  }
+
+  nav button {
+    padding: 16px 32px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.3rem;
+    background: #222;
+    color: #fff;
+    transition: 0.3s;
+  }
+
+  nav button:hover { 
+    background: #444; 
+    transform: scale(1.05); 
+  }
+
+  .fullscreen-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 15px 0;
+  }
+
+  .fullscreen-image img {
+    width: 85%;
+    max-width: 1300px;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    border-radius: 12px;
+  }
+
+  .text-overlay {
+    position: absolute;
+    top: 55%;
+    left: 15%;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 12px;
+    max-width: 750px; 
+    color: #ffffff;
+  }
+
+  .text-overlay h2 {
+    font-size: 2.8rem;
+    font-weight: bold;
+    margin-bottom: 25px;
+    color: #ffffff;
+  }
+
+  .text-overlay p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff;
+  }
+
+  section {
+    display: none; 
+    width: 100%;
+    padding: 60px 30px;
+  }
+
+  #friends, #pets, #interests { background: #222222; }
+  #hobbies, #personality, #ziele { background: #111111; }
+
+  h2 {
+    font-size: 2.8rem;
+    font-weight: bold;
+    margin-bottom: 35px;
+    text-align: center;
+    color: #ffffff; 
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+
+  .card {
+    background: #333333;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(255,255,255,0.05);
+    text-align: center;
+  }
+
+  /* Hobbys-Bilder größer, Querformat sichtbar */
+  #hobbies .card img {
+    width: 100%;
+    height: 300px;
+    object-fit: contain;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    background: #333333;
+  }
+
+  /* Haustierbilder größer Hochformat */
+  #pets .card img {
+    height: 500px;
+    object-fit: contain;
+    background: #333333;
+  }
+#interests .card img {
+    width: 100%;
+    height: 280px; /* Querformat passt in die Box */
+    object-fit: contain;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    background: #333333;
+}
+  .card h3 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin: 20px 0;
+    color: #ffffff;
+  }
+
+  .card p {
+    font-size: 1.3rem;
+    color: #cccccc;
+  }
+
+  footer {
+    background: #111111;
+    color: white;
+    padding: 40px 30px;
+    text-align: center;
+    margin-top: 60px;
+    font-size: 1.3rem;
+  }
+
+  footer a { color: #ffffff; text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 600px) {
+    nav { flex-direction: column; }
+    .text-overlay { max-width: 95%; padding: 30px; position: relative; top: 0; left: 0; }
+    .fullscreen-image { height: auto; margin: 30px 0; }
+    .fullscreen-image img { width: 95%; } 
+    .card h3 { font-size: 1.5rem; }
+    .card p { font-size: 1.2rem; }
+    #hobbies .card img { height: 250px; }
+    #pets .card img { height: 400px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Lista AG - Präsentation</h1>
+  <p>Nino Fester – angehender Informatiker Plattformentwickler</p>
+  <nav>
+    <button onclick="showSection('intro')">Einführung</button>
+    <button onclick="showSection('friends')">Freunde & Familie</button>
+    <button onclick="showSection('pets')">Haustiere</button>
+    <button onclick="showSection('hobbies')">Hobbys</button>
+    <button onclick="showSection('personality')">Persönlichkeit</button>
+    <button onclick="showSection('interests')">Interessen</button>
+    <button onclick="showSection('ziele')">Ziele</button>
+    <button onclick="showSection('abschluss')">Abschluss</button>
+  </nav>
+</header>
+
+<!-- Einführung -->
+<section id="intro" style="display: block;">
+  <div class="fullscreen-image">
+    <img src="nino.jpg" alt="Profilbild Nino Fester">
+  </div>
+  <div class="text-overlay">
+    <h2>Einführung</h2>
+    <p>Hallo, mein Name ist <strong>Nino Fester</strong>. Ich freue mich, mich hier vorzustellen. 
+    Auf dieser Seite erfahren Sie mehr über meine Freunde & Familie, Haustiere, Hobbys, Persönlichkeit, Interessen und Ziele.</p>
+  </div>
+</section>
+
+<!-- Freunde & Familie -->
+<section id="friends">
+  <h2>Freunde & Familie</h2>
+  <div style="text-align:center; max-width:800px; margin:0 auto 35px auto; font-size:1.4rem; color:#ffffff;">
+    Meine Freunde sind mir sehr wichtig, wir verbringen viel Zeit zusammen, unterstützen uns gegenseitig und haben immer Spaß bei gemeinsamen Aktivitäten.
+  </div>
+  <div class="grid-container">
+    <div class="card">
+      <img src="mama.jpg" alt="Mama" style="width:100%; height:300px; object-fit:cover; border-radius:12px; margin-bottom:15px;">
+      <h3>Mama</h3>
+      <p>Meine Mama ist immer unterstützend, fürsorglich und humorvoll.</p>
+    </div>
+    <div class="card">
+      <img src="papa.jpg" alt="Papa" style="width:100%; height:300px; object-fit:cover; border-radius:12px; margin-bottom:15px;">
+      <h3>Papa</h3>
+      <p>Mein Papa ist motivierend, verlässlich und ein Macher.</p>
+    </div>
+    <div class="card">
+      <img src="lara.jpg" alt="Lara" style="width:100%; height:300px; object-fit:cover; border-radius:12px; margin-bottom:15px;">
+      <h3>Lara</h3>
+      <p>Meine Schwester Lara ist kreativ, neugierig und hilfsbereit.</p>
+    </div>
+    <div class="card">
+      <img src="melissa.jpg" alt="Melissa" style="width:100%; height:300px; object-fit:cover; border-radius:12px; margin-bottom:15px;">
+      <h3>Melissa</h3>
+      <p>Meine Schwester Melissa ist freundlich, humorvoll und lustig.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Haustiere -->
+<section id="pets">
+  <h2>Meine Haustiere</h2>
+  <div class="grid-container">
+    <div class="card">
+      <img src="susi.jpg" alt="Hund Susi">
+      <h3>Susi</h3>
+      <p>ruhig, ängstlich, verschmust, stur</p>
+    </div>
+    <div class="card">
+      <img src="sally.jpg" alt="Hund Sally">
+      <h3>Sally</h3>
+      <p>verspielt, verschmust, nervtötend, lustig</p>
+    </div>
+  </div>
+</section>
+
+<!-- Hobbys -->
+<section id="hobbies">
+  <h2>Meine Hobbys</h2>
+  <div class="grid-container">
+    <div class="card">
+      <img src="editing.jpg" alt="Video Editieren">
+      <h3>Video Editieren</h3>
+      <p>Kreative Bearbeitung von Videos und Clips.</p>
+    </div>
+    <div class="card">
+      <img src="programmieren.jpg" alt="Programmieren">
+      <h3>Programmieren</h3>
+      <p>Ich möchte programmieren, um meine technischen Fähigkeiten auszubauen.</p>
+    </div>
+    <div class="card">
+      <img src="volleyball.jpg" alt="Volleyball">
+      <h3>Volleyball</h3>
+      <p>Mit Freunden spontan Volleyball spielen.</p>
+    </div>
+    <div class="card">
+      <img src="gaming.jpg" alt="Gaming">
+      <h3>Gaming</h3>
+      <p>Strategie- und Actionspiele in meiner Freizeit.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Persönlichkeit -->
+<section id="personality">
+  <h2>Meine Persönlichkeit</h2>
+  <div class="grid-container">
+    <div class="card"><h3>Selbstständig</h3></div>
+    <div class="card"><h3>Teamfähig und hilfsbereit</h3></div>
+    <div class="card"><h3>Ruhig</h3></div>
+    <div class="card"><h3>Analytisch und lösungsorientiert</h3></div>
+    <div class="card"><h3>Lernbereit</h3></div>
+  </div>
+</section>
+
+<!-- Interessen -->
+<section id="interests">
+  <h2>Meine Interessen</h2>
+  <div class="grid-container">
+    <div class="card">
+      <img src="ki.jpg" alt="KI">
+      <h3>Künstliche Intelligenz</h3>
+      <p>Fasziniert von maschinellem Lernen und smarter Softwareentwicklung.</p>
+    </div>
+    <div class="card">
+      <img src="editing.jpg" alt="Videoediting">
+      <h3>Videoediting</h3>
+      <p>Kreative Bearbeitung von Videos und Fotos.</p>
+    </div>
+    <div class="card">
+      <img src="webdev.jpg" alt="Software & Webentwicklung">
+      <h3>Software & Webentwicklung</h3>
+      <p>Entwicklung von Webseiten und Programmen, neue Technologien testen.</p>
+    </div>
+    <div class="card">
+      <img src="lernen.jpg" alt="Neues Lernen">
+      <h3>Neues Lernen</h3>
+      <p>Immer neugierig, Neues zu entdecken und Wissen zu erweitern.</p>
+    </div>
+    <div class="card">
+      <img src="gaming.jpg" alt="Gaming">
+      <h3>Gaming</h3>
+      <p>Strategie-, Abenteuer- und Actionspiele in der Freizeit.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Ziele -->
+<section id="ziele">
+  <h2>Meine Ziele</h2>
+  <div class="grid-container">
+    <div class="card"><h3>Beruflich</h3><p>Informatiker Plattformentwickler werden.</p></div>
+    <div class="card"><h3>Persönlich</h3><p>Neue Fähigkeiten erlernen, mich weiterentwickeln.</p></div>
+  </div>
+</section>
+
+<!-- Abschluss -->
+<section id="abschluss">
+  <div class="fullscreen-image">
+    <img src="bye-goodbye.gif" alt="Abschluss Bild">
+  </div>
+  <div class="text-overlay">
+    <h2>Abschluss</h2>
+  </div>
+</section>
+
+<footer>
+  <p>E-Mail: <a href="mailto:nino.fester@icloud.com">nino.fester@icloud.com</a></p>
+  <p>Telefon: +41 78 621 76 47</p>
+  <p>Ort: Berg, Thurgau, Schweiz</p>
+</footer>
+
+<script>
+  function showSection(id) {
+    const sections = document.querySelectorAll('section');
+    sections.forEach(sec => sec.style.display = 'none');
+    document.getElementById(id).style.display = 'block';
+    window.scrollTo(0, 0);
+  }
+  showSection('intro'); 
+</script>
+
+</body>
+</html>
+

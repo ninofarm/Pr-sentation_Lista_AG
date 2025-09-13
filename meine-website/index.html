@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bewerbung - Nino Fester</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #ffffff; /* Seitenhintergrund weiß */
+    color: #1f2937;
+  }
+
+  header {
+    background: #333333; /* dunkelgrau */
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
+  }
+
+  header h1 { margin: 0; font-size: 2.5rem; }
+  header p { margin-top: 10px; font-size: 1.2rem; }
+
+  nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  nav button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+
+  /* Abwechselnde Farben passend zu den Abschnitten */
+  nav button:nth-child(1) { background: #f3f3f3; color: #1f2937; }   /* Intro */
+  nav button:nth-child(2) { background: #e6e6e6; color: #1f2937; }   /* Hobbys */
+  nav button:nth-child(3) { background: #f3f3f3; color: #1f2937; }   /* Haustiere */
+  nav button:nth-child(4) { background: #e6e6e6; color: #1f2937; }   /* Persönlichkeit */
+  nav button:nth-child(5) { background: #f3f3f3; color: #1f2937; }   /* Interessen */
+  nav button:nth-child(6) { background: #e6e6e6; color: #1f2937; }   /* Abschluss */
+
+  nav button:hover {
+    background: #d1d1d1;
+    transform: scale(1.05);
+  }
+
+  section {
+    padding: 60px 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  }
+
+  h2 { color: #1e3a8a; margin-bottom: 15px; }
+
+  ul { padding-left: 20px; margin: 10px 0; }
+
+  .intro-image img, .dog-card img {
+    display: block;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 10px auto;
+    object-fit: cover;
+    background: #d9d9d9; /* Platzhalter Hintergrund */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  }
+
+  .dog-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .dog-card {
+    flex: 1 1 200px;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    background: #f3f3f3; /* hellgrau Box */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+
+  .button-link {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    background: #1e3a8a;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+
+  .button-link:hover { background: #111827; }
+
+  /* Abwechselnde Abschnittsfarben: Hellgrau / leicht dunkleres Grau */
+  #intro { background: #f3f3f3; }        /* hellgrau */
+  #hobbies { background: #e6e6e6; }      /* leicht dunkleres Grau */
+  #pets { background: #f3f3f3; }         /* hellgrau */
+  #personality { background: #e6e6e6; }  /* leicht dunkleres Grau */
+  #interests { background: #f3f3f3; }    /* hellgrau */
+  #abschluss { background: #e6e6e6; }    /* leicht dunkleres Grau */
+
+  @media (max-width: 600px) {
+    nav { flex-direction: column; }
+    .dog-container { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Willkommen auf meiner Präsentationsseite</h1>
+  <p>Ich bin Nino Fester – angehender Informatiker Plattformentwickler</p>
+  <nav>
+    <button onclick="document.getElementById('intro').scrollIntoView({behavior:'smooth'})">Einführung</button>
+    <button onclick="document.getElementById('hobbies').scrollIntoView({behavior:'smooth'})">Hobbys</button>
+    <button onclick="document.getElementById('pets').scrollIntoView({behavior:'smooth'})">Haustiere</button>
+    <button onclick="document.getElementById('personality').scrollIntoView({behavior:'smooth'})">Persönlichkeit</button>
+    <button onclick="document.getElementById('interests').scrollIntoView({behavior:'smooth'})">Interessen</button>
+    <button onclick="document.getElementById('abschluss').scrollIntoView({behavior:'smooth'})">Abschluss</button>
+  </nav>
+</header>
+
+<section id="intro">
+  <div class="intro-image">
+    <img src="profil.jpg" alt="Profilbild Nino Fester">
+  </div>
+  <h2>Einführung</h2>
+  <p>Hallo, mein Name ist Nino Fester. Ich freue mich, mich hier kurz vorzustellen. Auf dieser Seite erfahren Sie mehr über mich, meine Hobbys, Haustiere, Persönlichkeit und Interessen.</p>
+</section>
+
+<section id="hobbies">
+  <h2>Meine Hobbys</h2>
+  <ul>
+    <li>Video Editieren</li>
+    <li>Programmieren (Python)</li>
+    <li>Volleyball</li>
+    <li>Gaming</li>
+  </ul>
+</section>
+
+<section id="pets">
+  <h2>Meine Haustiere</h2>
+  <p>Ich habe zwei Mini Yorkshire Terrier: <strong>Susi</strong> und <strong>Sally</strong>.</p>
+  <div class="dog-container">
+    <div class="dog-card">
+      <img src="susi.jpg" alt="Susi">
+      <h3>Susi</h3>
+      <p>Verspielt, neugierig und voller Energie.</p>
+    </div>
+    <div class="dog-card">
+      <img src="sally.jpg" alt="Sally">
+      <h3>Sally</h3>
+      <p>Ruhiger, verschmuster Charakter.</p>
+    </div>
+  </div>
+</section>
+
+<section id="personality">
+  <h2>Persönlichkeit</h2>
+  <ul>
+    <li>Selbstständigkeit</li>
+    <li>Teamfähig und hilfsbereit</li>
+    <li>Ruhig und ausgeglichen, auch in stressigen Situationen</li>
+    <li>Analytisch denkend und lösungsorientiert</li>
+    <li>Offen für Neues und lernbereit</li>
+  </ul>
+</section>
+
+<section id="interests">
+  <h2>Meine Interessen</h2>
+  <ul>
+    <li>Technologie und Softwareentwicklung</li>
+    <li>Sport und Fitness</li>
+    <li>Musik und Kultur</li>
+    <li>Gaming und Strategie-Spiele</li>
+    <li>Freunde, Familie und meine Hunde</li>
+  </ul>
+</section>
+
+<section id="abschluss">
+  <h2>Abschluss</h2>
+  <p>Ich hoffe, meine Präsentation hat euch gefallen und ihr habt einen guten Einblick in mich bekommen. Vielen Dank fürs Lesen!</p>
+</section>
+
+</body>
+</html>
